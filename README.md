@@ -37,7 +37,7 @@ Rules:
 
 1. You are a snake moving on a 2D board.
 1. At the beginning, your body is 3 cases long (but you're squished into 1 case).
-1. Each turn, you can either move up, down, left or right.
+1. You start at a random valid position. Each turn, you can either move up, down, left or right.
 1. You start with 100 health. Each turn, you lose 1 health.
 1. Food will spawn randomly on the board. You grow by 1 and reset your health to 100 by eating food.
 1. You die if you go out of bounds.
@@ -68,6 +68,8 @@ ID: player - HP: 100 - Length: 9
 * +: food
 
 You will be implementing and testing a series of functions to draw the board and to detect collisions. Everything else has already been written for you. If you're curious, take at look at the files in `lib/`.
+
+**You don't need to worry about invalid inputs. Autograder tests will derive from situations that could happen in the actual game.**
 
 #### Drawing the board
 
@@ -144,7 +146,7 @@ Move represents the direction that the snake will go towards next. It shouldn't 
 vector<Pos> snake;
 ```
 
-A snake is represented by a vector of Pos. The first element is the position of the head, the rest represents the body, in order. There shouldn't be any duplicate positions except at the beginning where the snake is all squished together.
+A snake is represented by a vector of Pos. The first element is the position of the head, the rest represents the body, in order. There shouldn't be any duplicate positions except at the beginning where the snake is all squished together at a random valid position.
 
 Eg. At the beginning of the game, the snake is randomly spawned at position (2, 0):
 ```
@@ -237,7 +239,7 @@ Complete the `TEST(DrawSnake, Test1)` test case by coming up with a vector of Po
 ######################
 ```
 
-Feel free to duplicate the test case to try out different scenarios. Don't forget to rename subsequent tests. (Eg. Test2, Test3, etc.)
+Duplicate the test case to make sure different scenarios are tested. Don't forget to rename subsequent tests. (Eg. Test2, Test3, etc.)
 
 #### `bool collide_walls(const std::vector<Pos> snake, Move move);`
 
@@ -252,7 +254,7 @@ For example, given the snake on the mini board below (`(3, 1)`, `(2, 1)`, `(2, 2
 #####
 ```
 
-Complete the `TEST(CollideWalls, Test1)` test case. Feel free to duplicate it to try out different scenarios.
+Complete the `TEST(CollideWalls, Test1)` test case and duplicate it to cover different scenarios.
 
 #### `bool collide_snake(const std::vector<Pos> snake, Move move);`
 
@@ -267,7 +269,7 @@ For example, given the snake on the mini board below (`(3, 1)`, `(2, 1)`, `(2, 2
 #####
 ```
 
-Complete the `TEST(CollideSnake, Test1)` test case. Feel free to duplicate it to try out different scenarios.
+Complete the `TEST(CollideSnake, Test1)` test case and duplicate it to cover different scenarios.
 
 **Complete the implementation of the above functions in `snake_helper.cpp` and make sure your test cases pass when you run `make test`. Run the game after `make build` using `./snake`.**
 
@@ -294,7 +296,7 @@ Complete the `TEST(DrawFood, Test1)` test case by coming up with a set of Pos fo
 ######################
 ```
 
-Feel free to duplicate the test case to try out different scenarios. Don't forget to rename subsequent tests. (Eg. Test2, Test3, etc.)
+Duplicate the test case to make sure different scenarios are tested. Don't forget to rename subsequent tests. (Eg. Test2, Test3, etc.)
 
 #### `bool collide_food(const std::vector<Pos> snake, Move move, const std::set<Pos> food);`
 
@@ -309,11 +311,24 @@ For example, given the snake (`(2, 1)`, `(1, 1)`, `(1, 2)`) and food locations (
 #####
 ```
 
-Complete the `TEST(CollideFood, Test1)` test case. Feel free to duplicate it to try out different scenarios.
+Complete the `TEST(CollideFood, Test1)` test case and duplicate it to cover different scenarios.
 
 **Complete the implementation of the above functions in `snake_helper.cpp` and make sure your test cases pass when you run `make test`. Run the game after `make build` using `./snake`.**
 
 ## Rubric
+
+* (75 points) Programming
+  * (1 point) TODO comment check
+  * (1 point) Style check
+  * (53 points) Autograder test cases
+    * (4 points) `draw_walls()`
+    * (8 points) `draw_snake()`
+    * (6 points) `draw_food()`
+    * (4 points) all 3 functions above combined
+    * (8 points) `collide_walls()`
+    * (15 points) `collide_snake()`
+    * (8 points) `collide_food()`
+  * (20 points) Good test cases in `snake_helper_test.cpp`
 
 ## Due Date
 

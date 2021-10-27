@@ -35,8 +35,8 @@ TEST(DrawWalls, Test1) {
 }
 
 // DO NOT MODIFY ANYTHING BEFORE THIS LINE
-// FEEl FREE TO ADD MORE TEST CASES YOURSELF
 
+// TODO: Duplicate this test case to cover more scenarios.
 TEST(DrawSnake, Test1) {
   char board[HEIGHT + 2][WIDTH + 2];
   init_board(board);
@@ -63,6 +63,7 @@ TEST(DrawSnake, Test1) {
   EXPECT_BOARD(board, expected);
 }
 
+// TODO: Duplicate this test case to cover more scenarios.
 TEST(DrawFood, Test1) {
   char board[HEIGHT + 2][WIDTH + 2];
   init_board(board);
@@ -89,6 +90,7 @@ TEST(DrawFood, Test1) {
   EXPECT_BOARD(board, expected);
 }
 
+// TODO: Duplicate this test case to cover more scenarios.
 TEST(CollideWalls, Test1) {
   // TODO: Modify the input arguments to your function.
   vector<Pos> snake = {{.x = 0, .y = 0}, {.x = 0, .y = 0}, {.x = 0, .y = 0}};
@@ -99,6 +101,7 @@ TEST(CollideWalls, Test1) {
   EXPECT_EQ(collide_walls(snake, move), expected);
 }
 
+// TODO: Duplicate this test case to cover more scenarios.
 TEST(CollideSnake, Test1) {
   // TODO: Modify the input arguments to your function.
   vector<Pos> snake = {{.x = 0, .y = 0}, {.x = 0, .y = 0}, {.x = 0, .y = 0}};
@@ -109,6 +112,7 @@ TEST(CollideSnake, Test1) {
   EXPECT_EQ(collide_snake(snake, move), expected);
 }
 
+// TODO: Duplicate this test case to cover more scenarios.
 TEST(CollideFood, Test1) {
   // TODO: Modify the input arguments to your function.
   vector<Pos> snake = {{.x = 0, .y = 0}, {.x = 0, .y = 0}, {.x = 0, .y = 0}};
